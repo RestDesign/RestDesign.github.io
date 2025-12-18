@@ -775,7 +775,7 @@
           <li><a href="#home" class="nav-link active">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#products" class="nav-link">Products</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#pesan" class="nav-link">Contact</a></li>
         </ul>
         <div class="mobile-menu" id="mobileMenu">
           <span></span>
@@ -952,7 +952,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="reveal">
+    <section id="pesan" class="reveal">
       <h2 class="section-title">Get in Touch</h2>
       <p class="section-subtitle">We'd love to hear from you</p>
       <div class="contact-container">
@@ -1001,17 +1001,18 @@
             </div>
           </div>
         </div>
-        <form class="contact-form" id="contactForm">
+        <!-- form services -->
+        <form class="contact-form" id="contactForm" onsubmit="kirimWA(event)">
           <div class="form-group">
-            <label for="name">Your Name</label>
+            <label for="name">Nama</label>
             <input type="text" id="name" name="name" required />
           </div>
           <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required />
+            <label for="email">Alamat</label>
+            <input type="address" id="address" name="address" required />
           </div>
           <div class="form-group">
-            <label for="message">Message</label>
+            <label for="message">Isi Pesan</label>
             <textarea id="message" name="message" required></textarea>
           </div>
           <button type="submit" class="submit-btn">Send Message</button>
@@ -1075,7 +1076,7 @@
           <a href="#home">Home</a><br />
           <a href="#about">About Us</a><br />
           <a href="#products">Our Creations</a><br />
-          <a href="#contact">Contact</a>
+          <a href="#pesan">Contact</a>
         </div>
         <div class="footer-section">
           <h3>Menu Highlights</h3>
@@ -1098,6 +1099,25 @@
         </p>
       </div>
     </footer>
+
+    <!-- SCRIPT WHATSAPP -->
+    <script>
+      function kirimWA(e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const address = document.getElementById("address").value;
+        const message = document.getElementById("message").value;
+
+        const pesan = `Halo!, Kak Rest Design saya ingin memesan:
+Nama: ${name}
+Alamat: ${address}
+${message}`;
+
+        const url =
+          "https://wa.me/62895341295070?text=" + encodeURIComponent(pesan);
+        window.open(url, "_blank");
+      }
+    </script>
 
     <script>
       // Mobile Menu Toggle
